@@ -1,22 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Todo1 from "./Components/Todo1";
+import { useState } from "react";
+
 
 function App() {
+  const [mode, setMode] = useState(true);
+
+ function toggleMode(){
+    setMode(!mode);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className={mode ? "light" : "dark"}>
+        <button onClick={toggleMode}>
+          {" "}
+          {mode ? "turn on dark mode" : "turn on light mode"}{" "}
+        </button>
+      <Todo1 />
       </header>
     </div>
   );
